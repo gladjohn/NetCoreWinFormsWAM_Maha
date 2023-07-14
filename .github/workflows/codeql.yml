@@ -44,9 +44,15 @@ jobs:
         # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
+    #Build the project for Net 6 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: | 
+          6.0.x
+    - run: dotnet build NetCoreWinFormsWAM.csproj
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
