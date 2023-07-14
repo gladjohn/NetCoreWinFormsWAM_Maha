@@ -52,7 +52,7 @@ jobs:
       with:
         dotnet-version: | 
           6.0.x
-    - run: dotnet build NetCoreWinFormsWAM.csproj
+    - run: dotnet build NetCoreWinFormsWAM.csproj /p:EnableWindowsTargeting=true
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
